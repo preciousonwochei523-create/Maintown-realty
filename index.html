@@ -10,17 +10,35 @@
 .nav-cta { background:var(--p); }
 .btn-white { background:#fff; color:var(--bk); box-shadow:0 4px 16px rgba(255,255,255,.18); }
 .btn-white:hover { box-shadow:0 8px 26px rgba(255,255,255,.28); }
-.search-float {
-  position:fixed; bottom:1.4rem; left:1.4rem; z-index:200;
-  display:flex; align-items:center; gap:.4rem;
-  background:var(--p); color:#fff; font-size:.82rem; font-weight:700;
-  padding:.75rem 1.1rem; border-radius:50px; text-decoration:none;
-  box-shadow:0 4px 18px rgba(124,58,237,.45); transition:transform .2s, box-shadow .2s;
+.search-bar {
+  position:fixed; top:0; left:0; right:0; z-index:150;
+  background:#0f0c16; border-bottom:1px solid rgba(167,139,250,.18);
+  padding:0; max-height:0; overflow:hidden; transition:max-height .25s ease, padding .25s ease;
 }
-.search-float:hover { transform:translateY(-2px); box-shadow:0 8px 26px rgba(124,58,237,.6); }
-@media(max-width:480px) {
-  .search-float span { display:none; }
-  .search-float { padding:.85rem; }
+.search-bar.open { max-height:120px; padding:.9rem 1.5rem; }
+.search-bar-inner { display:flex; gap:.6rem; max-width:1100px; margin:0 auto; align-items:center; }
+#searchInput {
+  flex:1; padding:.7rem 1rem; border-radius:10px; border:1.5px solid rgba(167,139,250,.25);
+  background:rgba(255,255,255,.05); color:#fff; font-family:'DM Sans',sans-serif; font-size:.88rem;
+}
+#searchInput::placeholder { color:rgba(255,255,255,.4); }
+#searchInput:focus { outline:none; border-color:var(--p); background:rgba(255,255,255,.08); }
+.search-go {
+  background:var(--p); color:#fff; border:none; padding:.7rem 1.3rem; border-radius:10px;
+  font-weight:700; font-size:.85rem; cursor:pointer; transition:opacity .2s; white-space:nowrap;
+}
+.search-go:hover { opacity:.88; }
+.search-close {
+  background:transparent; border:1px solid rgba(255,255,255,.2); color:#fff; width:38px; height:38px;
+  border-radius:50%; cursor:pointer; font-size:1rem; flex-shrink:0;
+}
+.search-close:hover { background:rgba(255,255,255,.08); }
+.search-status { max-width:1100px; margin:.5rem auto 0; font-size:.78rem; color:rgba(255,255,255,.5); }
+@media(max-width:600px) {
+  .search-bar-inner { flex-wrap:wrap; }
+  #searchInput { min-width:100%; order:1; }
+  .search-go { order:2; }
+  .search-close { order:3; margin-left:auto; }
 }
 .re-hero {
   position:relative;
@@ -236,7 +254,6 @@
 </head>
 <body>
 <div class="wa-float"><a href="https://wa.me/2348066611017?text=Hi,%20I%20want%20to%20find%20a%20property" target="_blank">💬<span class="wa-dot"></span></a></div>
-<a href="#listings" class="search-float">🔍 <span>Search Listings</span></a>
 
 <nav class="nav">
   <a href="index.html" class="nav-logo">MainTown <em>Realty</em></a>
@@ -249,8 +266,18 @@
     <li><a href="#agents">Agents</a></li>
     <li><a href="#canada">Canada</a></li>
   </ul>
-  <a href="https://wa.me/2348066611017?text=Hi,%20I%20want%20to%20find%20a%20property%20in%20Lagos" class="nav-cta" target="_blank">💬 Find Property</a>
+  <button id="navSearchBtn" class="nav-cta" onclick="toggleSearch()">Search</button>
 </nav>
+
+<!-- SEARCH BAR -->
+<div class="search-bar" id="searchBar">
+  <div class="search-bar-inner">
+    <input type="text" id="searchInput" placeholder="Search by area, e.g. Lekki, Ikeja, Yaba..." autocomplete="off"/>
+    <button class="search-go" onclick="runSearch()">Search</button>
+    <button class="search-close" onclick="toggleSearch()" aria-label="Close search">✕</button>
+  </div>
+  <div class="search-status" id="searchStatus"></div>
+</div>
 
 <!-- HERO -->
 <section class="re-hero">
@@ -599,8 +626,10 @@ const properties = [
 const PER_PAGE = 4;
 let currentPage = 1;
 const totalPages = Math.ceil(properties.length / PER_PAGE);
+let searchActive = false;
 
 function renderPage() {
+  if (searchActive) return;
   document.querySelectorAll('.prop-card').forEach((card, i) => {
     const page = Math.floor(i / PER_PAGE) + 1;
     card.style.display = (page === currentPage) ? '' : 'none';
@@ -617,6 +646,52 @@ function changePage(dir) {
   document.getElementById('listings').scrollIntoView({behavior:'smooth', block:'start'});
 }
 renderPage();
+
+// ---- SEARCH ----
+function toggleSearch() {
+  const bar = document.getElementById('searchBar');
+  const opening = !bar.classList.contains('open');
+  bar.classList.toggle('open');
+  if (opening) {
+    setTimeout(() => document.getElementById('searchInput').focus(), 260);
+  } else {
+    clearSearch();
+  }
+}
+function runSearch() {
+  const q = document.getElementById('searchInput').value.trim().toLowerCase();
+  const status = document.getElementById('searchStatus');
+  const cards = document.querySelectorAll('.prop-card');
+  const pagination = document.querySelector('.pagination');
+
+  if (!q) { clearSearch(); return; }
+
+  searchActive = true;
+  let matches = 0;
+  cards.forEach((card, i) => {
+    const p = properties[i];
+    const haystack = [p.location, p.title, p.badge, ...(p.features||[])].join(' ').toLowerCase();
+    const isMatch = haystack.includes(q);
+    card.style.display = isMatch ? '' : 'none';
+    if (isMatch) matches++;
+  });
+  pagination.style.display = 'none';
+  status.textContent = matches
+    ? `${matches} propert${matches === 1 ? 'y' : 'ies'} matching "${q}"`
+    : `No properties found for "${q}" — try a different area or keyword.`;
+  document.getElementById('listings').scrollIntoView({behavior:'smooth', block:'start'});
+}
+function clearSearch() {
+  searchActive = false;
+  document.getElementById('searchInput').value = '';
+  document.getElementById('searchStatus').textContent = '';
+  document.querySelector('.pagination').style.display = '';
+  currentPage = 1;
+  renderPage();
+}
+document.getElementById('searchInput').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') runSearch();
+});
 
 // ---- LIGHTBOX (FULL-SCREEN GALLERY SLIDER) ----
 let lbPropIdx = 0;
