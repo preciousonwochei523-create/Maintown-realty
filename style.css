@@ -11,17 +11,20 @@
   --gl: #4CAF50;
   --p:  #7C3AED;
   --pl: #A78BFA;
-  --bk: #0A0A0A;
-  --bk2:#111111;
-  --bk3:#1A1A1A;
-  --ow: #F7F7F5;
-  --gr: #6B7280;
-  --grl:#F3F4F6;
+  --bk: #0b0b0f;
+  --bk2:#131018;
+  --bk3:#1c1726;
+  --ow: #0f0c16;
+  --card: #171220;
+  --card2:#1d1728;
+  --bd:  rgba(167,139,250,.16);
+  --gr: #9CA3AF;
+  --grl: rgba(167,139,250,.1);
   --wh: #FFFFFF;
   --wa: #25D366;
   --radius: 16px;
-  --shadow: 0 2px 24px rgba(0,0,0,.08);
-  --shadow-lg: 0 12px 40px rgba(0,0,0,.14);
+  --shadow: 0 2px 24px rgba(124,58,237,.10);
+  --shadow-lg: 0 16px 44px rgba(124,58,237,.20);
 }
 
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
@@ -90,13 +93,13 @@ h1,h2,h3 { font-family:'Fraunces',serif; font-weight:900; }
 /* ── CARDS ── */
 .card { border-radius:var(--radius); overflow:hidden; transition:transform .25s, box-shadow .25s; }
 .card:hover { transform:translateY(-5px); box-shadow:var(--shadow-lg); }
-.card-light { background:var(--wh); border:1px solid rgba(0,0,0,.07); box-shadow:var(--shadow); color:var(--bk); }
+.card-light { background:var(--card); border:1px solid var(--bd); box-shadow:var(--shadow); color:var(--wh); }
 .card-dark  { background:var(--bk3); border:1px solid rgba(255,255,255,.07); }
 .card-glass { background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); }
 
 /* ── DIVIDER ── */
 .divider { height:1px; background:rgba(255,255,255,.07); margin:0; }
-.divider-light { background:rgba(0,0,0,.07); }
+.divider-light { background:rgba(255,255,255,.08); }
 
 /* ── FOOTER ── */
 footer { background:#060606; border-top:1px solid rgba(255,255,255,.06); padding:2.5rem 2rem; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem; }
@@ -128,30 +131,4 @@ footer { background:#060606; border-top:1px solid rgba(255,255,255,.06); padding
 @media(max-width:580px) {
   .grid-3, .grid-4 { grid-template-columns:1fr; }
   .btn-lg { width:100%; justify-content:center; }
-}
-
-.re-hero {
-  position:relative;
-  min-height:100vh; /* 👈 CHANGE THIS */
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:9rem 1.5rem 4rem;
-  overflow:hidden;
-}
-
-.hero-slideshow {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-
-.hero-slide {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  opacity: 1;
 }
