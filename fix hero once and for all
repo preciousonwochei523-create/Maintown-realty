@@ -7,28 +7,20 @@
 <link rel="stylesheet" href="style.css"/>
 <link rel="preload" as="image" href="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1600&q=60"/>
 <style>
-.re-hero {
-  position:relative;
-  min-height:70vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;
-  padding:9rem 1.5rem 4rem;
-  overflow:hidden;
-}
-.hero-slideshow { position:absolute; inset:0; z-index:0; }
-.hero-slide {
-  position:absolute; inset:0;
-  background-size:cover; background-position:center 55%;
-  filter:saturate(.85) brightness(.55);
-  opacity:0; transition:opacity 1.4s ease-in-out;
-}
-.hero-slide.active { opacity:1; }
-.re-hero::after {
-  content:''; position:absolute; inset:0;
-  background:
-    linear-gradient(180deg, rgba(10,10,10,.75) 0%, rgba(10,10,10,.55) 35%, rgba(10,10,10,.88) 100%),
-    radial-gradient(ellipse 60% 50% at 50% 30%, rgba(124,58,237,.28) 0%, transparent 60%);
-  z-index:1;
-}
-.re-hero > * { position:relative; z-index:2; }
+.<section class="re-hero">
+
+  <div class="hero-slideshow">
+    <div class="hero-slide" style="background-image: url('/images/hero/lagos-city.jpg');"></div>
+    <div class="hero-slide" style="background-image: url('/images/hero/abuja-city.jpg');"></div>
+    <div class="hero-slide" style="background-image: url('/images/hero/lagos-home.jpg');"></div>
+    <div class="hero-slide" style="background-image: url('/images/hero/abuja-home.png');"></div>
+  </div>
+
+  <div style="position:relative; z-index:2; text-align:center;">
+    <h1>Flexible Rent. Verified Homes.</h1>
+  </div>
+
+</section> }
 .hero-dots { display:flex; gap:.5rem; justify-content:center; margin-top:.5rem; }
 .hero-dot {
   width:7px; height:7px; border-radius:50%; background:rgba(255,255,255,.3);
