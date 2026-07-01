@@ -130,6 +130,22 @@ footer { background:#060606; border-top:1px solid rgba(255,255,255,.06); padding
   .btn-lg { width:100%; justify-content:center; }
 }
 
-.hero-slide:first-child {
-  opacity: 1 !important;
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-slideshow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 1;
 }
