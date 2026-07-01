@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>SmartyHub Logistics — Fast Lagos Delivery · No App Needed</title>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.log-hero {
+  min-height:82vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;
+  padding:9rem 1.5rem 5rem;
+  background:radial-gradient(ellipse 65% 55% at 75% 30%,rgba(124,58,237,.25) 0%,transparent 60%),
+             radial-gradient(ellipse 50% 45% at 20% 70%,rgba(167,139,250,.12) 0%,transparent 55%), var(--bk);
+}
+.log-hero h1 { font-size:clamp(2.4rem,6vw,5rem); max-width:720px; margin-bottom:.5em; }
+.log-hero h1 span { color:var(--pl); }
+.log-hero p { font-size:clamp(.92rem,1.8vw,1.12rem); color:rgba(255,255,255,.54); max-width:520px; line-height:1.75; margin:0 auto 2rem; }
+
+/* PROCESS */
+.process-section { background:var(--ow); padding:5.5rem 0; }
+.process-steps { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:3rem; position:relative; }
+.process-steps::before {
+  content:''; position:absolute; top:2.2rem; left:16%; right:16%; height:2px;
+  background:linear-gradient(90deg,var(--p),var(--pl));
+  z-index:0;
+}
+.step-card { background:var(--wh); border-radius:16px; padding:2rem 1.5rem; text-align:center; border:1px solid rgba(0,0,0,.07); box-shadow:var(--shadow); position:relative; z-index:1; }
+.step-n { width:44px; height:44px; border-radius:50%; background:linear-gradient(135deg,var(--p),var(--pl)); color:#fff; font-family:'Fraunces',serif; font-size:1.1rem; font-weight:900; display:flex; align-items:center; justify-content:center; margin:0 auto 1rem; }
+.step-title { font-family:'Fraunces',serif; font-size:1rem; font-weight:900; color:var(--bk); margin-bottom:.4rem; }
+.step-desc { font-size:.82rem; color:var(--gr); line-height:1.62; }
+
+/* SERVICES */
+.services-section { background:var(--bk2); padding:5.5rem 0; }
+.services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.4rem; margin-top:3rem; }
+.srv-card {
+  background:var(--bk3); border:1px solid rgba(255,255,255,.07); border-radius:16px;
+  padding:1.8rem; transition:border-color .2s, transform .2s;
+}
+.srv-card:hover { border-color:rgba(167,139,250,.35); transform:translateY(-4px); }
+.srv-ico { font-size:1.8rem; margin-bottom:.85rem; }
+.srv-title { font-family:'Fraunces',serif; font-size:1.02rem; font-weight:900; margin-bottom:.45rem; }
+.srv-desc { font-size:.81rem; color:rgba(255,255,255,.45); line-height:1.65; margin-bottom:1rem; }
+
+/* PRICING */
+.pricing-section { background:var(--ow); padding:5.5rem 0; }
+.pricing-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.4rem; margin-top:3rem; }
+.price-card {
+  background:var(--wh); border-radius:16px; padding:1.8rem;
+  border:1px solid rgba(0,0,0,.07); box-shadow:var(--shadow);
+  text-align:center; transition:transform .22s, box-shadow .22s;
+}
+.price-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-lg); }
+.price-card.featured { border-color:var(--p); box-shadow:0 4px 24px rgba(124,58,237,.18); }
+.price-badge { display:inline-block; background:var(--p); color:#fff; font-size:.65rem; font-weight:700; padding:.18rem .6rem; border-radius:50px; text-transform:uppercase; letter-spacing:.07em; margin-bottom:.8rem; }
+.price-type { font-family:'Fraunces',serif; font-size:1.05rem; font-weight:900; color:var(--bk); margin-bottom:.4rem; }
+.price-range { font-size:1.5rem; font-weight:700; color:var(--p); margin-bottom:.3rem; }
+.price-note { font-size:.75rem; color:var(--gr); margin-bottom:1rem; line-height:1.5; }
+.price-list { list-style:none; text-align:left; display:flex; flex-direction:column; gap:.35rem; margin-bottom:1.2rem; }
+.price-list li { font-size:.79rem; color:#374151; display:flex; align-items:center; gap:.4rem; }
+
+/* B2B BAND */
+.b2b-band { background:linear-gradient(135deg,rgba(124,58,237,.2),rgba(90,26,200,.15)); border-top:1px solid rgba(167,139,250,.15); border-bottom:1px solid rgba(167,139,250,.15); padding:4rem 0; }
+.b2b-band-inner { display:grid; grid-template-columns:1fr auto; gap:2rem; align-items:center; }
+.b2b-band h2 { font-size:clamp(1.4rem,3vw,2rem); margin-bottom:.6rem; }
+.b2b-band p { font-size:.87rem; color:rgba(255,255,255,.52); line-height:1.7; max-width:520px; }
+.b2b-band-btns { display:flex; flex-direction:column; gap:.7rem; align-items:flex-end; }
+
+/* LOG CTA */
+.log-cta { background:linear-gradient(135deg,var(--p),#5B21B6); padding:4rem 0; text-align:center; }
+.log-cta h2 { font-size:clamp(1.6rem,3.5vw,2.3rem); margin-bottom:.7rem; }
+.log-cta p { color:rgba(255,255,255,.65); font-size:.9rem; margin-bottom:1.8rem; }
+
+@media(max-width:900px) {
+  .process-steps,.services-grid,.pricing-grid { grid-template-columns:1fr 1fr; }
+  .process-steps::before { display:none; }
+  .b2b-band-inner { grid-template-columns:1fr; }
+  .b2b-band-btns { align-items:flex-start; }
+}
+@media(max-width:580px) {
+  .process-steps,.services-grid,.pricing-grid { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+<div class="wa-float"><a href="https://wa.me/2348066611017?text=Hi,%20I%20need%20a%20delivery" target="_blank">💬<span class="wa-dot"></span></a></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">Smarty<em>Hub</em> Group</a>
+  <ul class="nav-links">
+    <li><a href="organic.html">Supplements</a></li>
+    <li><a href="logistics.html" class="active">Logistics</a></li>
+    <li><a href="realty.html">Realty</a></li>
+  </ul>
+  <a href="https://wa.me/2348066611017?text=Hi,%20I%20need%20a%20delivery%20pickup" class="nav-cta" target="_blank">💬 Book Pickup</a>
+</nav>
+
+<!-- HERO -->
+<section class="log-hero">
+  <span class="eyebrow eyebrow-p fade-up">SmartyHub Logistics</span>
+  <h1 class="display fade-up delay-1">Fast, Reliable Lagos Delivery<br/><span>— No App Needed</span></h1>
+  <p class="fade-up delay-2">Send us your pickup and drop-off on WhatsApp. We give you a price, dispatch a rider, and deliver. Simple as that.</p>
+  <div style="display:flex;gap:.9rem;flex-wrap:wrap;justify-content:center" class="fade-up delay-3">
+    <a href="https://wa.me/2348066611017?text=Hi,%20I%20need%20a%20same-day%20delivery%20pickup%20in%20Lagos" class="btn btn-wa btn-lg" target="_blank">💬 Book a Pickup Now</a>
+    <a href="#pricing" class="btn btn-ghost btn-lg">See Pricing</a>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="process-section">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow eyebrow-p">How It Works</span>
+      <h2 style="color:var(--bk);font-size:clamp(1.6rem,3vw,2.2rem)">3 Steps. That's It.</h2>
+      <p style="color:var(--gr);font-size:.87rem;margin-top:.5rem;max-width:400px;margin-left:auto;margin-right:auto">No app, no signup, no stress. Just WhatsApp us and we handle the rest.</p>
+    </div>
+    <div class="process-steps">
+      <div class="step-card">
+        <div class="step-n">1</div>
+        <div class="step-title">Send Pickup &amp; Drop-off</div>
+        <p class="step-desc">WhatsApp us your pickup address, destination, and what's being delivered. Include your name and best time.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-n">2</div>
+        <div class="step-title">Get Your Price</div>
+        <p class="step-desc">We reply with a clear price based on your route. No hidden fees. You confirm and we move — no back-and-forth.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-n">3</div>
+        <div class="step-title">Rider Dispatched</div>
+        <p class="step-desc">Your rider is dispatched and you get updates. Delivery confirmed when it arrives safely.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:2.5rem">
+      <a href="https://wa.me/2348066611017?text=Hi,%20I%20need%20a%20delivery.%20Pickup:%20[address]%20Drop:%20[address]" class="btn btn-p" target="_blank">💬 Send Your Delivery Details</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow eyebrow-p">What We Deliver</span>
+      <h2 style="font-size:clamp(1.6rem,3vw,2.2rem)">Our Delivery Services</h2>
+      <p style="color:rgba(255,255,255,.44);font-size:.87rem;margin-top:.5rem;max-width:420px;margin-left:auto;margin-right:auto">From individual errands to monthly business contracts — we handle it.</p>
+    </div>
+    <div class="services-grid">
+      <div class="srv-card">
+        <div class="srv-ico">⚡</div>
+        <div class="srv-title">Same-Day Delivery</div>
+        <p class="srv-desc">Order before 12pm and we deliver same day across Lagos. Ideal for urgent packages and time-sensitive items.</p>
+        <a href="https://wa.me/2348066611017?text=Hi,%20I%20need%20same-day%20delivery" class="btn btn-p btn-sm" target="_blank">💬 Book Now</a>
+      </div>
+      <div class="srv-card">
+        <div class="srv-ico">💊</div>
+        <div class="srv-title">Pharmaceutical Delivery</div>
+        <p class="srv-desc">Trusted, discreet delivery for clinics, hospitals and pharmacies. We understand the importance of accuracy and timing.</p>
+        <a href="https://wa.me/2348066611017?text=Hi,%20I%20need%20pharmaceutical%20delivery" class="btn btn-p btn-sm" target="_blank">💬 Book Now</a>
+      </div>
+      <div class="srv-card">
+        <div class="srv-ico">📦</div>
+        <div class="srv-title">E-Commerce Fulfilment</div>
+        <p class="srv-desc">Perfect for Instagram and WhatsApp sellers. We pick up from you and deliver to your customers across Lagos.</p>
+        <a href="https://wa.me/2348066611017?text=Hi,%20I%20need%20ecommerce%20fulfilment" class="btn btn-p btn-sm" target="_blank">💬 Book Now</a>
+      </div>
+      <div class="srv-card">
+        <div class="srv-ico">🏢</div>
+        <div class="srv-title">Corporate Dispatch</div>
+        <p class="srv-desc">Monthly contracts for businesses with regular delivery needs. We become your dedicated dispatch team at a fixed rate.</p>
+        <a href="https://wa.me/2348066611017?text=Hi,%20I%20need%20a%20corporate%20dispatch%20contract" class="btn btn-p btn-sm" target="_blank">💬 Get a Quote</a>
+      </div>
+      <div class="srv-card">
+        <div class="srv-ico">🌿</div>
+        <div class="srv-title">SmartyHub Organic Orders</div>
+        <p class="srv-desc">All supplement and food orders from SmartyHub Organic are handled in-house by our logistics team for speed and care.</p>
+        <a href="organic.html" class="btn btn-g btn-sm">Order Supplements</a>
+      </div>
+      <div class="srv-card">
+        <div class="srv-ico">🛵</div>
+        <div class="srv-title">Errand &amp; Pickup Service</div>
+        <p class="srv-desc">Need something picked up across town? We run errands for individuals — markets, offices, shops, anywhere in Lagos.</p>
+        <a href="https://wa.me/2348066611017?text=Hi,%20I%20need%20an%20errand%20run" class="btn btn-p btn-sm" target="_blank">💬 Book Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow eyebrow-p">Delivery Pricing</span>
+      <h2 style="color:var(--bk);font-size:clamp(1.6rem,3vw,2.2rem)">Clear, No-Surprise Pricing</h2>
+      <p style="color:var(--gr);font-size:.86rem;margin-top:.5rem;max-width:440px;margin-left:auto;margin-right:auto">Prices below are estimates based on route. We confirm exact price on WhatsApp before dispatch — no hidden charges.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-type">Within Same Area</div>
+        <div class="price-range">₦800 – ₦1,500</div>
+        <p class="price-note">Short-distance delivery within the same neighborhood or LGA (e.g. Surulere to Surulere)</p>
+        <ul class="price-list">
+          <li><span class="chk-p">✓</span> Fast turnaround</li>
+          <li><span class="chk-p">✓</span> Same-day available</li>
+          <li><span class="chk-p">✓</span> Rider updates included</li>
+        </ul>
+        <a href="https://wa.me/2348066611017?text=Hi,%20I%20need%20a%20short%20distance%20delivery" class="btn btn-p btn-sm" style="width:100%;justify-content:center" target="_blank">💬 Book</a>
+      </div>
+      <div class="price-card featured">
+        <div class="price-badge">Most Popular</div>
+        <div class="price-type">Mainland ↔ Island</div>
+        <div class="price-range">₦2,500 – ₦4,500</div>
+        <p class="price-note">Cross-zone delivery (e.g. Ikeja to Lekki, Surulere to VI). Price varies by traffic and item.</p>
+        <ul class="price-list">
+          <li><span class="chk-p">✓</span> Most common route type</li>
+          <li><span class="chk-p">✓</span> Fixed price confirmed upfront</li>
+          <li><span class="chk-p">✓</span> Available 7 days a week</li>
+        </ul>
+        <a href="https://wa.me/2348066611017?text=Hi,%20I%20need%20a%20cross-zone%20Lagos%20delivery" class="btn btn-p btn-sm" style="width:100%;justify-content:center" target="_blank">💬 Book</a>
+      </div>
+      <div class="price-card">
+        <div class="price-type">Business / Bulk</div>
+        <div class="price-range">Custom Quote</div>
+        <p class="price-note">For regular deliveries, bulk orders or monthly contracts. We give you a fixed rate that saves you money.</p>
+        <ul class="price-list">
+          <li><span class="chk-p">✓</span> Monthly retainer pricing</li>
+          <li><span class="chk-p">✓</span> Priority dispatch</li>
+          <li><span class="chk-p">✓</span> Dedicated account service</li>
+        </ul>
+        <a href="https://wa.me/2348066611017?text=Hi,%20I%20need%20a%20business%20delivery%20quote" class="btn btn-p btn-sm" style="width:100%;justify-content:center" target="_blank">💬 Get Quote</a>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:.78rem;color:var(--gr);margin-top:1.5rem">All prices are estimates. Final price confirmed on WhatsApp before any rider is dispatched.</p>
+  </div>
+</section>
+
+<!-- B2B BAND -->
+<section class="b2b-band">
+  <div class="wrap">
+    <div class="b2b-band-inner">
+      <div>
+        <span class="eyebrow eyebrow-p">For Businesses</span>
+        <h2>Reliable Delivery for Pharmacies &amp; Businesses</h2>
+        <p>We position ourselves as a supply chain partner, not just a dispatch service. For pharmacies, clinics, or any Lagos business with recurring delivery needs — let's discuss a proper arrangement.</p>
+      </div>
+      <div class="b2b-band-btns">
+        <a href="https://wa.me/2348066611017?text=Hi,%20I%20want%20to%20discuss%20a%20business%20delivery%20contract" class="btn btn-wa" target="_blank">💬 Discuss a Contract</a>
+        <a href="https://wa.me/2348066611017?text=Hi,%20I%20am%20a%20pharmacy%20and%20need%20pharma%20delivery" class="btn btn-ghost" target="_blank">💊 Pharma Enquiry</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="log-cta">
+  <div class="wrap">
+    <h2>Need a Delivery Today?</h2>
+    <p>Send us your pickup and drop-off address on WhatsApp. We respond fast and get it done.</p>
+    <a href="https://wa.me/2348066611017?text=Hi,%20I%20need%20a%20delivery.%20Pickup%20address:%20Drop%20address:" class="btn btn-wa btn-lg" target="_blank">💬 Send Delivery Details Now</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Smarty<em>Hub</em> Group</div>
+  <div class="footer-copy">© 2025 SmartyHub Logistics · Lagos-Wide Delivery</div>
+  <nav class="footer-nav">
+    <a href="index.html">Home</a>
+    <a href="organic.html">Supplements</a>
+    <a href="realty.html">Realty</a>
+    <a href="https://instagram.com/smartyhublogistics" target="_blank">Instagram</a>
+  </nav>
+</footer>
+</body>
+</html>
