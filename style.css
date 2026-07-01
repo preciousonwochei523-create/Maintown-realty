@@ -130,10 +130,16 @@ footer { background:#060606; border-top:1px solid rgba(255,255,255,.06); padding
   .btn-lg { width:100%; justify-content:center; }
 }
 
-.hero {
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
+.re-hero {
+  position:relative;
+  min-height:100vh; /* 👈 CHANGE THIS */
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:9rem 1.5rem 4rem;
+  overflow:hidden;
 }
 
 .hero-slideshow {
