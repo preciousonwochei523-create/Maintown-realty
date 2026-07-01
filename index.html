@@ -104,6 +104,7 @@
 .prop-location { font-size:.74rem; color:var(--gr); text-transform:uppercase; letter-spacing:.07em; margin-bottom:.4rem; display:flex; align-items:center; gap:.3rem; }
 .prop-name { font-family:'Fraunces',serif; font-size:1.15rem; font-weight:900; color:#0b0b0f; margin-bottom:.5rem; }
 .prop-price { font-size:1.2rem; font-weight:700; color:var(--p); margin-bottom:.7rem; }
+.prop-price-note { font-size:.72rem; color:var(--gr); margin-top:-.5rem; margin-bottom:.7rem; line-height:1.5; }
 .prop-features { display:flex; gap:.6rem; flex-wrap:wrap; margin-bottom:1.1rem; }
 .prop-feat { font-size:.72rem; color:#6B7280; background:#F3F4F6; padding:.2rem .55rem; border-radius:50px; }
 .prop-btn { width:100%; justify-content:center; border-radius:12px; }
@@ -342,20 +343,7 @@
         </div>
       </div>
       <div class="prop-card">
-        <div class="prop-img" style="background-image:url('https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=75')" onclick="openLightbox(2)">
-          <div class="prop-badge"><span class="pill pill-p">For Rent</span></div>
-          <div class="prop-view-hint">View Gallery</div>
-        </div>
-        <div class="prop-body">
-          <div class="prop-location">Ikeja, Lagos</div>
-          <div class="prop-name">2-Bedroom Apartment</div>
-          <div class="prop-price">₦1,200,000 / year</div>
-          <div class="prop-features"><span class="prop-feat">2 Beds</span><span class="prop-feat">2 Baths</span><span class="prop-feat">Parking</span><span class="prop-feat">Prepaid</span></div>
-          <a href="https://wa.me/2348066611017?text=Hi,%20I%20am%20interested%20in%20the%202-bedroom%20in%20Ikeja" class="btn btn-p btn-sm prop-btn" target="_blank">Enquire Now</a>
-        </div>
-      </div>
-      <div class="prop-card">
-        <div class="prop-img" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=75')" onclick="openLightbox(3)">
+        <div class="prop-img" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=75')" onclick="openLightbox(2)">
           <div class="prop-badge"><span class="pill pill-p">Commercial</span></div>
           <div class="prop-view-hint">View Gallery</div>
         </div>
@@ -368,7 +356,7 @@
         </div>
       </div>
       <div class="prop-card">
-        <div class="prop-img" style="background-image:url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=75')" onclick="openLightbox(4)">
+        <div class="prop-img" style="background-image:url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=75')" onclick="openLightbox(3)">
           <div class="prop-badge"><span class="pill pill-p">For Sale</span></div>
           <div class="prop-view-hint">View Gallery</div>
         </div>
@@ -381,7 +369,7 @@
         </div>
       </div>
       <div class="prop-card">
-        <div class="prop-img" style="background-image:url('https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=800&q=75')" onclick="openLightbox(5)">
+        <div class="prop-img" style="background-image:url('https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=800&q=75')" onclick="openLightbox(4)">
           <div class="prop-badge"><span class="pill pill-p">For Rent</span></div>
           <div class="prop-view-hint">View Gallery</div>
         </div>
@@ -391,6 +379,20 @@
           <div class="prop-price">₦350,000 / year</div>
           <div class="prop-features"><span class="prop-feat">Self-Contain</span><span class="prop-feat">Water</span><span class="prop-feat">Security</span></div>
           <a href="https://wa.me/2348066611017?text=Hi,%20I%20am%20interested%20in%20the%20self-contain%20in%20Ojodu" class="btn btn-p btn-sm prop-btn" target="_blank">Enquire Now</a>
+        </div>
+      </div>
+      <div class="prop-card">
+        <div class="prop-img" style="background-image:url('images/oniru-vi-duplex/exterior.jpg')" onclick="openLightbox(5)">
+          <div class="prop-badge"><span class="pill pill-p">New Listing</span></div>
+          <div class="prop-view-hint">View Gallery</div>
+        </div>
+        <div class="prop-body">
+          <div class="prop-location">Oniru, Victoria Island, Lagos</div>
+          <div class="prop-name">Unfurnished 4-Bedroom Terrace Duplex</div>
+          <div class="prop-price">₦35,000,000 / year</div>
+          <div class="prop-price-note">+ Service Charge ₦2,500,000 (excl. light &amp; diesel) · Agency 10% · Legal 10% · Caution ₦3,000,000</div>
+          <div class="prop-features"><span class="prop-feat">4 Bedrooms</span><span class="prop-feat">Unfurnished</span><span class="prop-feat">Terrace Duplex</span><span class="prop-feat">Ensuite Rooms</span></div>
+          <a href="https://wa.me/2348066611017?text=Hi%2C%20I%27m%20interested%20in%20the%20Unfurnished%204-Bedroom%20Terrace%20Duplex%20in%20Oniru%2C%20Victoria%20Island%20(%E2%82%A635M%2Fyear%2C%20SC%20%E2%82%A62.5M%2C%20Agency%2010%25%2C%20Legal%2010%25%2C%20Caution%20%E2%82%A63M)." class="btn btn-p btn-sm prop-btn" target="_blank">Enquire Now</a>
         </div>
       </div>
 
@@ -585,15 +587,6 @@ const properties = [
     wa: "Hi, I am interested in the 1-bedroom in Surulere"
   },
   {
-    location: "Ikeja, Lagos",
-    title: "2-Bedroom Apartment",
-    price: "₦1,200,000 / year",
-    badge: "For Rent",
-    features: ["2 Beds","2 Baths","Parking","Prepaid"],
-    images: ["https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=80"],
-    wa: "Hi, I am interested in the 2-bedroom in Ikeja"
-  },
-  {
     location: "Yaba, Lagos",
     title: "Shop / Office Space",
     price: "₦800,000 / year",
@@ -619,6 +612,25 @@ const properties = [
     features: ["Self-Contain","Water","Security"],
     images: ["https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=1200&q=80"],
     wa: "Hi, I am interested in the self-contain in Ojodu"
+  },
+  {
+    location: "Oniru, Victoria Island, Lagos",
+    title: "Unfurnished 4-Bedroom Terrace Duplex",
+    price: "₦35,000,000 / year",
+    badge: "New Listing",
+    features: ["4 Bedrooms","Unfurnished","Terrace Duplex","Ensuite Rooms"],
+    images: [
+      "images/oniru-vi-duplex/exterior.jpg",
+      "images/oniru-vi-duplex/living-room.jpg",
+      "images/oniru-vi-duplex/staircase.jpg",
+      "images/oniru-vi-duplex/bedroom-1.jpg",
+      "images/oniru-vi-duplex/bedroom-2.jpg",
+      "images/oniru-vi-duplex/bedroom-3.jpg",
+      "images/oniru-vi-duplex/wardrobe.jpg",
+      "images/oniru-vi-duplex/kitchen.jpg",
+      "images/oniru-vi-duplex/bathroom.jpg"
+    ],
+    wa: "Hi, I'm interested in the Unfurnished 4-Bedroom Terrace Duplex in Oniru, Victoria Island (₦35M/year, SC ₦2.5M, Agency 10%, Legal 10%, Caution ₦3M)."
   }
 ];
 
