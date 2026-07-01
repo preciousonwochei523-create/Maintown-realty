@@ -10,6 +10,18 @@
 .nav-cta { background:var(--p); }
 .btn-white { background:#fff; color:var(--bk); box-shadow:0 4px 16px rgba(255,255,255,.18); }
 .btn-white:hover { box-shadow:0 8px 26px rgba(255,255,255,.28); }
+.search-float {
+  position:fixed; bottom:1.4rem; left:1.4rem; z-index:200;
+  display:flex; align-items:center; gap:.4rem;
+  background:var(--p); color:#fff; font-size:.82rem; font-weight:700;
+  padding:.75rem 1.1rem; border-radius:50px; text-decoration:none;
+  box-shadow:0 4px 18px rgba(124,58,237,.45); transition:transform .2s, box-shadow .2s;
+}
+.search-float:hover { transform:translateY(-2px); box-shadow:0 8px 26px rgba(124,58,237,.6); }
+@media(max-width:480px) {
+  .search-float span { display:none; }
+  .search-float { padding:.85rem; }
+}
 .re-hero {
   position:relative;
   min-height:70vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;
@@ -51,7 +63,7 @@
 .re-hero p { font-size:clamp(.92rem,1.8vw,1.12rem); color:rgba(255,255,255,.62); max-width:520px; line-height:1.75; margin:0 auto 2rem; }
 
 /* LISTINGS — GRID (NOT SLIDER) */
-.listings-section { background:var(--ow); padding:5.5rem 0; }
+.listings-section { background:#0f0c16; padding:5.5rem 0; }
 .listings-grid {
   display:grid; grid-template-columns:1fr 1fr; gap:1.75rem; margin-top:3rem;
 }
@@ -127,20 +139,19 @@
 /* ONBOARDING — LANDLORD / AGENT */
 .onb-section { padding:5.5rem 0; }
 .onb-section.landlord { background:var(--bk2); }
-.onb-section.agent { background:var(--ow); }
+.onb-section.agent { background:#0f0c16; }
 .onb-inner { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start; }
 .onb-text h2 { font-size:clamp(1.5rem,3vw,2.2rem); margin-bottom:1rem; }
 .onb-section.landlord .onb-text h2 { color:var(--wh); }
-.onb-section.agent .onb-text h2 { color:#0b0b0f; }
+.onb-section.agent .onb-text h2 { color:var(--wh); }
 .onb-text p.onb-desc { font-size:.88rem; line-height:1.75; margin-bottom:1.4rem; }
 .onb-section.landlord .onb-desc { color:rgba(255,255,255,.6); }
 .onb-section.agent .onb-desc { color:var(--gr); }
 .onb-perks { list-style:none; display:flex; flex-direction:column; gap:.7rem; margin-bottom:1.6rem; }
 .onb-perk { display:flex; align-items:center; gap:.7rem; font-size:.85rem; }
 .onb-section.landlord .onb-perk { color:rgba(255,255,255,.7); }
-.onb-section.agent .onb-perk { color:#1f1a2e; }
+.onb-section.agent .onb-perk { color:rgba(255,255,255,.75); }
 .onb-perk svg { flex-shrink:0; color:var(--pl); }
-.onb-section.agent .onb-perk svg { color:#6D28D9; }
 .onb-note { font-size:.76rem; line-height:1.6; border-left:2px solid var(--p); padding-left:.9rem; }
 .onb-section.landlord .onb-note { color:rgba(255,255,255,.4); }
 .onb-section.agent .onb-note { color:var(--gr); }
@@ -225,10 +236,12 @@
 </head>
 <body>
 <div class="wa-float"><a href="https://wa.me/2348066611017?text=Hi,%20I%20want%20to%20find%20a%20property" target="_blank">💬<span class="wa-dot"></span></a></div>
+<a href="#listings" class="search-float">🔍 <span>Search Listings</span></a>
 
 <nav class="nav">
   <a href="index.html" class="nav-logo">MainTown <em>Realty</em></a>
   <ul class="nav-links">
+    <li><a href="#listings">Listings</a></li>
     <li><a href="organic.html">Organic</a></li>
     <li><a href="logistics.html">Logistics</a></li>
     <li><a href="index.html" class="active">Realty</a></li>
@@ -270,7 +283,7 @@
   <div class="wrap">
     <div class="center">
       <span class="eyebrow eyebrow-p">Nigeria Listings</span>
-      <h2 style="color:#0b0b0f;font-size:clamp(1.6rem,3vw,2.3rem)">Properties in Lagos</h2>
+      <h2 style="color:var(--wh);font-size:clamp(1.6rem,3vw,2.3rem)">Properties in Lagos</h2>
       <p style="color:var(--gr);font-size:.86rem;margin-top:.5rem;max-width:480px;margin-left:auto;margin-right:auto">Tap any property image to view the full photo gallery. WhatsApp us with your budget and preferred area for current availability.</p>
     </div>
 
