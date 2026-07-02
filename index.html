@@ -131,6 +131,16 @@
 .prop-features { display:flex; gap:.6rem; flex-wrap:wrap; margin-bottom:1.1rem; }
 .prop-feat { font-size:.72rem; color:#6B7280; background:#F3F4F6; padding:.2rem .55rem; border-radius:50px; }
 .prop-btn { width:100%; justify-content:center; border-radius:12px; }
+.prop-card.unavailable .prop-img { filter:grayscale(1) brightness(.75); cursor:default; }
+.prop-card.unavailable .prop-name,
+.prop-card.unavailable .prop-price { color:#9CA3AF; }
+.prop-card.unavailable .prop-view-hint { display:none; }
+.pill-gray { background:rgba(107,114,128,.12); border:1px solid rgba(107,114,128,.3); color:#6B7280; }
+.prop-btn-disabled {
+  width:100%; text-align:center; padding:.65rem 1rem; border-radius:12px;
+  background:#F3F4F6; color:#9CA3AF; font-weight:700; font-size:.85rem;
+  cursor:not-allowed; border:1px solid rgba(0,0,0,.06);
+}
 
 @media (max-width:760px) {
   .listings-grid { grid-template-columns:1fr; }
@@ -352,56 +362,52 @@
           <a href="https://wa.me/2348066611017?text=Hi%2C%20I%27m%20interested%20in%20the%20Fully%20Serviced%203-Bedroom%20Apartment%20in%20Oniru%20Estate%2C%20Victoria%20Island%20(%E2%82%A635M%2Fyear)." class="btn btn-p btn-sm prop-btn" target="_blank">Enquire Now</a>
         </div>
       </div>
-      <div class="prop-card">
-        <div class="prop-img" style="background-image:url('https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=75')" onclick="openLightbox(1)">
-          <div class="prop-badge"><span class="pill pill-p">For Rent</span></div>
-          <div class="prop-view-hint">View Gallery</div>
+      <div class="prop-card unavailable">
+        <div class="prop-img" style="background-image:url('https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=75')">
+          <div class="prop-badge"><span class="pill pill-gray">Unavailable</span></div>
         </div>
         <div class="prop-body">
           <div class="prop-location">Surulere, Lagos</div>
           <div class="prop-name">1-Bedroom Flat</div>
           <div class="prop-price">₦600,000 / year</div>
           <div class="prop-features"><span class="prop-feat">1 Bed</span><span class="prop-feat">1 Bath</span><span class="prop-feat">Water</span><span class="prop-feat">Secure</span></div>
-          <a href="https://wa.me/2348066611017?text=Hi,%20I%20am%20interested%20in%20the%201-bedroom%20in%20Surulere" class="btn btn-p btn-sm prop-btn" target="_blank">Enquire Now</a>
+          <span class="prop-btn-disabled">Currently Unavailable</span>
         </div>
       </div>
-      <div class="prop-card">
-        <div class="prop-img" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=75')" onclick="openLightbox(2)">
-          <div class="prop-badge"><span class="pill pill-p">Commercial</span></div>
-          <div class="prop-view-hint">View Gallery</div>
+      <div class="prop-card unavailable">
+        <div class="prop-img" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=75')">
+          <div class="prop-badge"><span class="pill pill-gray">Unavailable</span></div>
         </div>
         <div class="prop-body">
           <div class="prop-location">Yaba, Lagos</div>
           <div class="prop-name">Shop / Office Space</div>
           <div class="prop-price">₦800,000 / year</div>
           <div class="prop-features"><span class="prop-feat">Ground Floor</span><span class="prop-feat">Main Road</span><span class="prop-feat">Utilities</span></div>
-          <a href="https://wa.me/2348066611017?text=Hi,%20I%20am%20interested%20in%20the%20shop%2Foffice%20space%20in%20Yaba" class="btn btn-p btn-sm prop-btn" target="_blank">Enquire Now</a>
+          <span class="prop-btn-disabled">Currently Unavailable</span>
         </div>
       </div>
-      <div class="prop-card">
-        <div class="prop-img" style="background-image:url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=75')" onclick="openLightbox(3)">
-          <div class="prop-badge"><span class="pill pill-p">For Sale</span></div>
-          <div class="prop-view-hint">View Gallery</div>
+      <div class="prop-card unavailable">
+        <div class="prop-img" style="background-image:url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=75')">
+          <div class="prop-badge"><span class="pill pill-gray">Unavailable</span></div>
         </div>
         <div class="prop-body">
           <div class="prop-location">Lekki Phase 1, Lagos</div>
           <div class="prop-name">3-Bedroom Terrace</div>
           <div class="prop-price">₦45,000,000</div>
           <div class="prop-features"><span class="prop-feat">3 Beds</span><span class="prop-feat">3 Baths</span><span class="prop-feat">BQ</span><span class="prop-feat">Estate</span></div>
-          <a href="https://wa.me/2348066611017?text=Hi,%20I%20am%20interested%20in%20the%203-bed%20terrace%20in%20Lekki" class="btn btn-p btn-sm prop-btn" target="_blank">Enquire Now</a>
+          <span class="prop-btn-disabled">Currently Unavailable</span>
         </div>
       </div>
-      <div class="prop-card">
-        <div class="prop-img" style="background-image:url('https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=800&q=75')" onclick="openLightbox(4)">
-          <div class="prop-badge"><span class="pill pill-p">For Rent</span></div>
-          <div class="prop-view-hint">View Gallery</div>
+      <div class="prop-card unavailable">
+        <div class="prop-img" style="background-image:url('https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=800&q=75')">
+          <div class="prop-badge"><span class="pill pill-gray">Unavailable</span></div>
         </div>
         <div class="prop-body">
           <div class="prop-location">Ojodu Berger, Lagos</div>
           <div class="prop-name">Self-Contain Studio</div>
           <div class="prop-price">₦350,000 / year</div>
           <div class="prop-features"><span class="prop-feat">Self-Contain</span><span class="prop-feat">Water</span><span class="prop-feat">Security</span></div>
-          <a href="https://wa.me/2348066611017?text=Hi,%20I%20am%20interested%20in%20the%20self-contain%20in%20Ojodu" class="btn btn-p btn-sm prop-btn" target="_blank">Enquire Now</a>
+          <span class="prop-btn-disabled">Currently Unavailable</span>
         </div>
       </div>
       <div class="prop-card">
@@ -643,7 +649,7 @@ const properties = [
     location: "Surulere, Lagos",
     title: "1-Bedroom Flat",
     price: "₦600,000 / year",
-    badge: "For Rent",
+    badge: "Unavailable",
     features: ["1 Bed","1 Bath","Water","Secure"],
     images: ["https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80"],
     wa: "Hi, I am interested in the 1-bedroom in Surulere"
@@ -652,7 +658,7 @@ const properties = [
     location: "Yaba, Lagos",
     title: "Shop / Office Space",
     price: "₦800,000 / year",
-    badge: "Commercial",
+    badge: "Unavailable",
     features: ["Ground Floor","Main Road","Utilities"],
     images: ["https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80"],
     wa: "Hi, I am interested in the shop/office space in Yaba"
@@ -661,7 +667,7 @@ const properties = [
     location: "Lekki Phase 1, Lagos",
     title: "3-Bedroom Terrace",
     price: "₦45,000,000",
-    badge: "For Sale",
+    badge: "Unavailable",
     features: ["3 Beds","3 Baths","BQ","Estate"],
     images: ["https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1200&q=80"],
     wa: "Hi, I am interested in the 3-bed terrace in Lekki"
@@ -670,7 +676,7 @@ const properties = [
     location: "Ojodu Berger, Lagos",
     title: "Self-Contain Studio",
     price: "₦350,000 / year",
-    badge: "For Rent",
+    badge: "Unavailable",
     features: ["Self-Contain","Water","Security"],
     images: ["https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=1200&q=80"],
     wa: "Hi, I am interested in the self-contain in Ojodu"
