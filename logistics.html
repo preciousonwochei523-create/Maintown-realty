@@ -24,9 +24,9 @@
   background:linear-gradient(90deg,var(--p),var(--pl));
   z-index:0;
 }
-.step-card { background:var(--wh); border-radius:16px; padding:2rem 1.5rem; text-align:center; border:1px solid rgba(0,0,0,.07); box-shadow:var(--shadow); position:relative; z-index:1; }
+.step-card { background:var(--card); border-radius:16px; padding:2rem 1.5rem; text-align:center; border:1px solid var(--bd); box-shadow:var(--shadow); position:relative; z-index:1; }
 .step-n { width:44px; height:44px; border-radius:50%; background:linear-gradient(135deg,var(--p),var(--pl)); color:#fff; font-family:'Fraunces',serif; font-size:1.1rem; font-weight:900; display:flex; align-items:center; justify-content:center; margin:0 auto 1rem; }
-.step-title { font-family:'Fraunces',serif; font-size:1rem; font-weight:900; color:var(--bk); margin-bottom:.4rem; }
+.step-title { font-family:'Fraunces',serif; font-size:1rem; font-weight:900; color:var(--wh); margin-bottom:.4rem; }
 .step-desc { font-size:.82rem; color:var(--gr); line-height:1.62; }
 
 /* SERVICES */
@@ -45,18 +45,18 @@
 .pricing-section { background:var(--ow); padding:5.5rem 0; }
 .pricing-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.4rem; margin-top:3rem; }
 .price-card {
-  background:var(--wh); border-radius:16px; padding:1.8rem;
-  border:1px solid rgba(0,0,0,.07); box-shadow:var(--shadow);
+  background:var(--card); border-radius:16px; padding:1.8rem;
+  border:1px solid var(--bd); box-shadow:var(--shadow);
   text-align:center; transition:transform .22s, box-shadow .22s;
 }
 .price-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-lg); }
 .price-card.featured { border-color:var(--p); box-shadow:0 4px 24px rgba(124,58,237,.18); }
 .price-badge { display:inline-block; background:var(--p); color:#fff; font-size:.65rem; font-weight:700; padding:.18rem .6rem; border-radius:50px; text-transform:uppercase; letter-spacing:.07em; margin-bottom:.8rem; }
-.price-type { font-family:'Fraunces',serif; font-size:1.05rem; font-weight:900; color:var(--bk); margin-bottom:.4rem; }
+.price-type { font-family:'Fraunces',serif; font-size:1.05rem; font-weight:900; color:var(--wh); margin-bottom:.4rem; }
 .price-range { font-size:1.5rem; font-weight:700; color:var(--p); margin-bottom:.3rem; }
 .price-note { font-size:.75rem; color:var(--gr); margin-bottom:1rem; line-height:1.5; }
 .price-list { list-style:none; text-align:left; display:flex; flex-direction:column; gap:.35rem; margin-bottom:1.2rem; }
-.price-list li { font-size:.79rem; color:#374151; display:flex; align-items:center; gap:.4rem; }
+.price-list li { font-size:.79rem; color:rgba(255,255,255,.75); display:flex; align-items:center; gap:.4rem; }
 
 /* B2B BAND */
 .b2b-band { background:linear-gradient(135deg,rgba(124,58,237,.2),rgba(90,26,200,.15)); border-top:1px solid rgba(167,139,250,.15); border-bottom:1px solid rgba(167,139,250,.15); padding:4rem 0; }
@@ -84,15 +84,22 @@
 <body>
 <div class="wa-float"><a href="https://wa.me/2348066611017?text=Hi,%20I%20need%20a%20delivery" target="_blank">💬<span class="wa-dot"></span></a></div>
 
-<nav>
+<nav class="nav">
   <a href="smartyhub.html" class="nav-logo">Smarty<em>Hub</em> Group</a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="navLinks">
     <li><a href="organic.html">Supplements</a></li>
     <li><a href="logistics.html" class="active">Logistics</a></li>
     <li><a href="index.html">Realty</a></li>
   </ul>
   <a href="https://wa.me/2348066611017?text=Hi,%20I%20need%20a%20delivery%20pickup" class="nav-cta" target="_blank">💬 Book Pickup</a>
+  <button class="nav-toggle" id="navToggle" onclick="toggleNavMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
+<script>
+function toggleNavMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+  document.getElementById('navToggle').classList.toggle('open');
+}
+</script>
 
 <!-- HERO -->
 <section class="log-hero">
@@ -110,7 +117,7 @@
   <div class="wrap">
     <div class="center">
       <span class="eyebrow eyebrow-p">How It Works</span>
-      <h2 style="color:var(--bk);font-size:clamp(1.6rem,3vw,2.2rem)">3 Steps. That's It.</h2>
+      <h2 style="color:var(--wh);font-size:clamp(1.6rem,3vw,2.2rem)">3 Steps. That's It.</h2>
       <p style="color:var(--gr);font-size:.87rem;margin-top:.5rem;max-width:400px;margin-left:auto;margin-right:auto">No app, no signup, no stress. Just WhatsApp us and we handle the rest.</p>
     </div>
     <div class="process-steps">
@@ -190,7 +197,7 @@
   <div class="wrap">
     <div class="center">
       <span class="eyebrow eyebrow-p">Delivery Pricing</span>
-      <h2 style="color:var(--bk);font-size:clamp(1.6rem,3vw,2.2rem)">Clear, No-Surprise Pricing</h2>
+      <h2 style="color:var(--wh);font-size:clamp(1.6rem,3vw,2.2rem)">Clear, No-Surprise Pricing</h2>
       <p style="color:var(--gr);font-size:.86rem;margin-top:.5rem;max-width:440px;margin-left:auto;margin-right:auto">Prices below are estimates based on route. We confirm exact price on WhatsApp before dispatch — no hidden charges.</p>
     </div>
     <div class="pricing-grid">

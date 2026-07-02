@@ -292,7 +292,7 @@
 
 <nav class="nav">
   <a href="index.html" class="nav-logo">MainTown <em>Realty</em></a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="navLinks">
     <li><a href="about.html">About</a></li>
     <li><a href="#listings">Listings</a></li>
     <li><a href="organic.html">Organic</a></li>
@@ -303,7 +303,14 @@
     <li><a href="#canada">Canada</a></li>
   </ul>
   <button id="navSearchBtn" class="nav-cta" onclick="toggleSearch()">Search</button>
+  <button class="nav-toggle" id="navToggle" onclick="toggleNavMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
+<script>
+function toggleNavMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+  document.getElementById('navToggle').classList.toggle('open');
+}
+</script>
 
 <!-- SEARCH BAR -->
 <div class="search-bar" id="searchBar">

@@ -46,13 +46,13 @@
 
 /* QUICK ACTIONS */
 .qa-section { background:var(--ow); padding:4.5rem 0; }
-.qa-title { font-size:clamp(1.5rem,3vw,2rem); color:var(--bk); margin-bottom:.6rem; }
+.qa-title { font-size:clamp(1.5rem,3vw,2rem); color:var(--wh); margin-bottom:.6rem; }
 .qa-sub { font-size:.9rem; color:var(--gr); margin-bottom:2.5rem; }
 .qa-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.3rem; }
 .qa-card {
-  background:var(--wh); border-radius:18px; padding:1.8rem;
-  border:1.5px solid rgba(0,0,0,.07); box-shadow:var(--shadow);
-  display:flex; flex-direction:column; gap:.5rem; color:var(--bk);
+  background:var(--card); border-radius:18px; padding:1.8rem;
+  border:1.5px solid var(--bd); box-shadow:var(--shadow);
+  display:flex; flex-direction:column; gap:.5rem; color:var(--wh);
   transition:transform .22s, box-shadow .22s, border-color .22s;
 }
 .qa-card:hover { transform:translateY(-6px); box-shadow:0 14px 36px rgba(37,211,102,.13); border-color:var(--wa); }
@@ -85,9 +85,9 @@
 /* TRUST */
 .trust-section { background:var(--ow); padding:5.5rem 0; }
 .trust-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.2rem; margin-top:3rem; }
-.trust-card { background:var(--wh); border-radius:14px; padding:1.6rem; border:1px solid rgba(0,0,0,.07); box-shadow:var(--shadow); }
+.trust-card { background:var(--card); border-radius:14px; padding:1.6rem; border:1px solid var(--bd); box-shadow:var(--shadow); }
 .trust-ico { font-size:1.7rem; margin-bottom:.8rem; }
-.trust-card h4 { font-family:'Fraunces',serif; font-size:.98rem; font-weight:900; color:var(--bk); margin-bottom:.4rem; }
+.trust-card h4 { font-family:'Fraunces',serif; font-size:.98rem; font-weight:900; color:var(--wh); margin-bottom:.4rem; }
 .trust-card p { font-size:.8rem; color:var(--gr); line-height:1.65; }
 
 /* FOUNDER */
@@ -130,15 +130,22 @@
 <div class="wa-float"><a href="https://wa.me/2348066611017" target="_blank">💬<span class="wa-dot"></span></a></div>
 
 <!-- NAV -->
-<nav>
+<nav class="nav">
   <a href="smartyhub.html" class="nav-logo">Smarty<em>Hub</em> Group</a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="navLinks">
     <li><a href="organic.html">Supplements</a></li>
     <li><a href="logistics.html">Logistics</a></li>
     <li><a href="index.html">Realty</a></li>
   </ul>
   <a href="https://wa.me/2348066611017" class="nav-cta" target="_blank">💬 WhatsApp</a>
+  <button class="nav-toggle" id="navToggle" onclick="toggleNavMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
+<script>
+function toggleNavMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+  document.getElementById('navToggle').classList.toggle('open');
+}
+</script>
 
 <!-- BANNER -->
 <div style="width:100%;line-height:0;display:block;">
@@ -254,7 +261,7 @@
           <div style="font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#A78BFA;margin-bottom:.5rem">📱 MainTown Realty App — Coming Soon</div>
           <p style="font-size:.76rem;color:rgba(255,255,255,.5);line-height:1.55;margin-bottom:.9rem">Download the app to browse listings, pay rent monthly, chat with landlords and agents — all in one place. Available soon on Android and iOS.</p>
           <div style="display:flex;gap:.6rem;flex-wrap:wrap;">
-            <a href="realty.html#canada" style="display:flex;align-items:center;gap:.5rem;background:rgba(213,43,30,.15);border:1px solid rgba(213,43,30,.4);color:#EF4444;padding:.5rem 1rem;border-radius:8px;font-size:.75rem;font-weight:700;text-decoration:none;">
+            <a href="index.html#canada" style="display:flex;align-items:center;gap:.5rem;background:rgba(213,43,30,.15);border:1px solid rgba(213,43,30,.4);color:#EF4444;padding:.5rem 1rem;border-radius:8px;font-size:.75rem;font-weight:700;text-decoration:none;">
               🍁 Canada Listings — Coming Soon
             </a>
           </div>
@@ -351,7 +358,7 @@
   <div class="wrap">
     <div class="center">
       <span class="eyebrow eyebrow-p">Why SmartyHub Group</span>
-      <h2 style="font-size:clamp(1.7rem,3.5vw,2.4rem);color:var(--bk)">Why People Trust Us</h2>
+      <h2 style="font-size:clamp(1.7rem,3.5vw,2.4rem);color:var(--wh)">Why People Trust Us</h2>
     </div>
     <div class="trust-grid">
       <div class="trust-card"><div class="trust-ico">🏆</div><h4>Real Experience</h4><p>Founded by a supply chain professional with direct pharma inventory and logistics experience — not a side project.</p></div>
