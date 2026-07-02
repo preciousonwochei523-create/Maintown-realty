@@ -83,23 +83,28 @@
 /* LISTINGS — GRID (NOT SLIDER) */
 .listings-section { background:#0f0c16; padding:5.5rem 0; }
 
-.agent-section { background:var(--bk2); padding:3.6rem 0; }
+.agent-section { background:var(--bk2); padding:3rem 0; }
+.agent-grid { display:flex; flex-wrap:wrap; gap:1rem; }
 .agent-card {
-  max-width:720px; margin:0 auto; background:#171220; border:1px solid var(--bd);
-  border-radius:22px; padding:2.2rem 2rem; text-align:center; box-shadow:var(--shadow-lg);
+  width:200px; background:#171220; border:1px solid var(--bd);
+  border-radius:16px; padding:1.3rem 1.1rem; text-align:center; box-shadow:var(--shadow);
 }
 .agent-photo {
-  width:104px; height:104px; border-radius:50%; object-fit:cover; object-position:center 30%;
-  border:3px solid var(--p); box-shadow:0 0 0 4px rgba(124,58,237,.18); margin-bottom:1.1rem;
+  width:64px; height:64px; border-radius:50%; object-fit:cover; object-position:center 30%;
+  border:2px solid var(--p); box-shadow:0 0 0 3px rgba(124,58,237,.16); margin-bottom:.7rem;
 }
-.agent-eyebrow { display:inline-block; font-size:.7rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--pl); margin-bottom:.4rem; }
-.agent-name { font-family:'Fraunces',serif; font-size:1.35rem; color:var(--wh); margin-bottom:.2rem; }
-.agent-title { font-size:.85rem; color:var(--pl); font-weight:600; margin-bottom:.8rem; }
-.agent-desc { font-size:.86rem; color:var(--gr); max-width:440px; margin:0 auto 1rem; line-height:1.6; }
-.agent-rating { display:flex; align-items:center; justify-content:center; gap:.4rem; }
-.agent-stars { display:flex; gap:2px; color:var(--pl); }
-.agent-stars svg { width:16px; height:16px; }
-.agent-rating-text { font-size:.78rem; color:var(--gr); font-weight:600; }
+.agent-eyebrow { display:inline-block; font-size:.62rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--pl); margin-bottom:.3rem; }
+.agent-name { font-family:'Fraunces',serif; font-size:1rem; color:var(--wh); margin-bottom:.15rem; line-height:1.25; }
+.agent-title { font-size:.76rem; color:var(--pl); font-weight:600; margin-bottom:.6rem; }
+.agent-rating { display:flex; align-items:center; justify-content:center; gap:.3rem; }
+.agent-stars { display:flex; gap:1px; color:var(--pl); }
+.agent-stars svg { width:12px; height:12px; }
+.agent-rating-text { font-size:.66rem; color:var(--gr); font-weight:600; }
+.agent-slot-empty {
+  width:200px; border:1.5px dashed var(--bd); border-radius:16px; display:flex;
+  align-items:center; justify-content:center; text-align:center; padding:1.3rem 1rem;
+  font-size:.76rem; color:var(--gr); min-height:168px;
+}
 .listings-grid {
   display:grid; grid-template-columns:1fr 1fr; gap:1.75rem; margin-top:3rem;
 }
@@ -427,13 +432,12 @@
 <!-- MEET YOUR AGENT -->
 <section class="agent-section">
   <div class="wrap">
-    <div class="agent-card">
-      <img src="images/team/obinna-jerry.jpg" alt="Mamah Obinna Jerry, House Agent at MainTown Realty" class="agent-photo"/>
-      <div class="agent-info">
-        <span class="agent-eyebrow">Your Agent</span>
+    <span class="agent-eyebrow" style="margin-bottom:1rem;display:block">Our Agents</span>
+    <div class="agent-grid">
+      <div class="agent-card">
+        <img src="images/team/obinna-jerry.jpg" alt="Mamah Obinna Jerry" class="agent-photo"/>
         <h3 class="agent-name">Mamah Obinna Jerry</h3>
-        <p class="agent-title">House Agent, MainTown Realty</p>
-        <p class="agent-desc">Handles viewings, inspections, and enquiries for every listing on this page.</p>
+        <p class="agent-title">House Agent</p>
         <div class="agent-rating">
           <span class="agent-stars">
             <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9"/></svg>
@@ -442,7 +446,22 @@
             <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9"/></svg>
             <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9"/></svg>
           </span>
-          <span class="agent-rating-text">Verified MainTown Realty Agent</span>
+          <span class="agent-rating-text">Verified</span>
+        </div>
+      </div>
+      <div class="agent-card">
+        <img src="images/team/prismmon-icon.png" alt="Prismmon Enterprises Nig" class="agent-photo"/>
+        <h3 class="agent-name">Prismmon Enterprises Nig</h3>
+        <p class="agent-title">Partner Agency</p>
+        <div class="agent-rating">
+          <span class="agent-stars">
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9"/></svg>
+          </span>
+          <span class="agent-rating-text">Verified</span>
         </div>
       </div>
     </div>
