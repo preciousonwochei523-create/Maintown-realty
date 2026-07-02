@@ -95,8 +95,11 @@
 .agent-eyebrow { display:inline-block; font-size:.7rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--pl); margin-bottom:.4rem; }
 .agent-name { font-family:'Fraunces',serif; font-size:1.35rem; color:var(--wh); margin-bottom:.2rem; }
 .agent-title { font-size:.85rem; color:var(--pl); font-weight:600; margin-bottom:.8rem; }
-.agent-desc { font-size:.86rem; color:var(--gr); max-width:440px; margin:0 auto 1.3rem; line-height:1.6; }
-.agent-btn { display:inline-block; }
+.agent-desc { font-size:.86rem; color:var(--gr); max-width:440px; margin:0 auto 1rem; line-height:1.6; }
+.agent-rating { display:flex; align-items:center; justify-content:center; gap:.4rem; }
+.agent-stars { display:flex; gap:2px; color:var(--pl); }
+.agent-stars svg { width:16px; height:16px; }
+.agent-rating-text { font-size:.78rem; color:var(--gr); font-weight:600; }
 .listings-grid {
   display:grid; grid-template-columns:1fr 1fr; gap:1.75rem; margin-top:3rem;
 }
@@ -430,9 +433,18 @@
         <span class="agent-eyebrow">Your Agent</span>
         <h3 class="agent-name">Mamah Obinna Jerry</h3>
         <p class="agent-title">House Agent, MainTown Realty</p>
-        <p class="agent-desc">Handles viewings, inspections, and enquiries for every listing on this page. Reach out directly for the fastest response.</p>
+        <p class="agent-desc">Handles viewings, inspections, and enquiries for every listing on this page.</p>
+        <div class="agent-rating">
+          <span class="agent-stars">
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9"/></svg>
+          </span>
+          <span class="agent-rating-text">Verified MainTown Realty Agent</span>
+        </div>
       </div>
-      <a href="https://wa.me/2348066611017?text=Hi%20Obinna%2C%20I%27d%20like%20to%20speak%20with%20you%20about%20a%20MainTown%20Realty%20listing." class="btn btn-p agent-btn" target="_blank">Chat on WhatsApp</a>
     </div>
   </div>
 </section>
