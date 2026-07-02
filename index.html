@@ -83,6 +83,16 @@
 /* LISTINGS — GRID (NOT SLIDER) */
 .listings-section { background:#0f0c16; padding:5.5rem 0; }
 
+.about-section { background:var(--bk); padding:4.5rem 0; border-bottom:1px solid var(--bd); }
+.about-inner { max-width:720px; margin:0 auto; text-align:center; }
+.about-inner h2 { font-family:'Fraunces',serif; font-size:clamp(1.6rem,3vw,2.2rem); color:var(--wh); margin-bottom:1.1rem; }
+.about-inner p { font-size:.95rem; color:var(--gr); line-height:1.8; margin-bottom:1.8rem; }
+.about-stats { display:flex; flex-wrap:wrap; justify-content:center; gap:.7rem; }
+.about-stat {
+  font-size:.76rem; font-weight:700; color:var(--pl); background:rgba(124,58,237,.1);
+  border:1px solid rgba(124,58,237,.25); padding:.5rem 1rem; border-radius:50px;
+}
+
 .agent-section { background:var(--bk2); padding:3rem 0; }
 .agent-grid { display:flex; flex-wrap:wrap; gap:1rem; }
 .agent-card {
@@ -292,6 +302,7 @@
 <nav class="nav">
   <a href="index.html" class="nav-logo">MainTown <em>Realty</em></a>
   <ul class="nav-links">
+    <li><a href="#about">About</a></li>
     <li><a href="#listings">Listings</a></li>
     <li><a href="organic.html">Organic</a></li>
     <li><a href="logistics.html">Logistics</a></li>
@@ -336,6 +347,21 @@
     <button class="hero-dot" onclick="goToSlide(1)" aria-label="Abuja City"></button>
     <button class="hero-dot" onclick="goToSlide(2)" aria-label="Lagos Home"></button>
     <button class="hero-dot" onclick="goToSlide(3)" aria-label="Abuja Home"></button>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="wrap about-inner">
+    <span class="eyebrow eyebrow-p">About Us</span>
+    <h2>Real Estate, Reimagined for Lagos</h2>
+    <p>MainTown Realty is part of the SmartyHub Group, built to make renting and buying property in Lagos simple, transparent, and fast. We connect verified tenants and buyers directly with landlords and agents — real listings, real conversations, real people on WhatsApp, with flexible Rent Now, Pay Later options so you don't need a full year's rent upfront to move in.</p>
+    <div class="about-stats">
+      <span class="about-stat">CAC Registered</span>
+      <span class="about-stat">Lagos-Based</span>
+      <span class="about-stat">WhatsApp-First Service</span>
+      <span class="about-stat">RNPL Flexible Payments</span>
+    </div>
   </div>
 </section>
 
