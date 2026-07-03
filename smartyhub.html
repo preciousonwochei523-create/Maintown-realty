@@ -103,7 +103,9 @@
   background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.09);
   border-radius:20px; padding:2rem 2.2rem; text-align:center; min-width:200px;
 }
-.fc-avatar { width:68px; height:68px; border-radius:50%; background:linear-gradient(135deg,var(--p),var(--g)); color:#fff; font-family:'Fraunces',serif; font-size:1.2rem; font-weight:900; display:flex; align-items:center; justify-content:center; margin:0 auto .9rem; }
+.fc-avatar { width:68px; height:68px; border-radius:50%; background:linear-gradient(135deg,var(--p),var(--g)); color:#fff; font-family:'Fraunces',serif; font-size:1.2rem; font-weight:900; display:flex; align-items:center; justify-content:center; margin:0 auto .9rem; overflow:hidden; padding:3px; box-shadow:0 0 0 2px rgba(255,255,255,.15); }
+.fc-avatar img { width:100%; height:100%; border-radius:50%; object-fit:cover; display:block; }
+.btn-ig { background:linear-gradient(135deg,#f58529,#dd2a7b,#8134af,#515bd4); color:#fff; }
 .fc-name { font-family:'Fraunces',serif; font-size:1rem; font-weight:900; margin-bottom:.22rem; }
 .fc-role { font-size:.72rem; color:rgba(255,255,255,.38); }
 
@@ -377,10 +379,10 @@ function toggleNavMenu() {
         <span class="eyebrow eyebrow-g">About the Founder</span>
         <h2>Built by Someone Who<br/>Knows the Lagos Struggle.</h2>
         <p>Onwochei Precious Ebuka is a supply chain and logistics professional with hands-on experience in pharmaceutical inventory, wholesale distribution, and delivery operations. SmartyHub Group was built to solve three problems he saw firsthand: access to genuine health products, reliable business delivery, and flexible housing.</p>
-        <a href="https://wa.me/2348066611017?text=Hi%20Precious,%20I%20want%20to%20connect" class="btn btn-wa" target="_blank">💬 Connect on WhatsApp</a>
+        <a href="https://www.instagram.com/preciousonwochei?igsh=NWJza2VjeXJtNHJq" class="btn btn-ig" target="_blank">📷 Connect on Instagram</a>
       </div>
       <div class="founder-chip">
-        <div class="fc-avatar">OPE</div>
+        <div class="fc-avatar"><img src="founder.jpg" alt="Onwochei Precious Ebuka"></div>
         <div class="fc-name">Onwochei Precious Ebuka</div>
         <div class="fc-role">Founder &amp; CEO · SmartyHub Group</div>
       </div>
