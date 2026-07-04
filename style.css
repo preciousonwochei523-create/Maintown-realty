@@ -65,7 +65,8 @@ h1,h2,h3 { font-family:'Fraunces',serif; font-weight:900; }
 
 /* ── NAV ── */
 .nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:1rem 2rem; background:rgba(10,10,10,.96); backdrop-filter:blur(14px); border-bottom:1px solid rgba(255,255,255,.06); }
-.nav-logo { font-family:'Fraunces',serif; font-size:1.25rem; font-weight:900; color:var(--wh); }
+.nav-logo { font-family:'Fraunces',serif; font-size:1.25rem; font-weight:900; color:var(--wh); display:flex; align-items:center; gap:.5rem; }
+.nav-logo-icon { height:30px; width:auto; display:block; }
 .nav-logo em { color:var(--pl); font-style:normal; }
 .nav-links { display:flex; gap:1.8rem; list-style:none; }
 .nav-links a { font-size:.82rem; font-weight:600; color:rgba(255,255,255,.6); letter-spacing:.04em; transition:color .18s; }
