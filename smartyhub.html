@@ -25,7 +25,7 @@
   background:linear-gradient(90deg, rgba(11,11,15,.88) 0%, rgba(11,11,15,.55) 45%, rgba(11,11,15,.25) 75%),
              linear-gradient(0deg, rgba(11,11,15,.65) 0%, transparent 45%);
 }
-.hs-content { position:relative; z-index:2; max-width:560px; padding:0 6vw; }
+.hs-content { position:relative; z-index:2; max-width:560px; padding:0 6vw; padding-bottom:3.5rem; }
 .hs-slide h2 {
   font-family:'Fraunces',serif; font-weight:900; color:var(--wh);
   font-size:clamp(2rem,5vw,3.4rem); line-height:1.08; letter-spacing:-.02em; margin-bottom:1rem;
@@ -45,7 +45,7 @@
 .hs-dot.active { background:var(--pl); width:26px; border-radius:5px; }
 
 .hs-arrow {
-  position:absolute; z-index:3; top:50%; transform:translateY(-50%);
+  position:absolute; z-index:3; bottom:1.5rem; top:auto;
   width:44px; height:44px; border-radius:50%; background:rgba(255,255,255,.08);
   border:1px solid rgba(255,255,255,.18); color:#fff; font-size:1.3rem; cursor:pointer;
   display:flex; align-items:center; justify-content:center; transition:background .2s, border-color .2s;
@@ -186,8 +186,9 @@
 
 <!-- NAV -->
 <nav class="nav">
-  <a href="smartyhub.html" class="nav-logo">Smarty<em>Hub</em> Group</a>
+  <a href="smartyhub.html" class="nav-logo"><span>Smarty<em>Hub</em></span> Group</a>
   <ul class="nav-links" id="navLinks">
+    <li><a href="about-smartyhub.html">About Us</a></li>
     <li><a href="organic.html">Supplements</a></li>
     <li><a href="logistics.html">Logistics</a></li>
     <li><a href="index.html">Realty</a></li>
@@ -215,14 +216,14 @@ function toggleNavMenu() {
     <div class="hs-content">
       <h2>Fast &amp; Reliable Delivery</h2>
       <p>Same-day delivery across Lagos. No app needed.</p>
-      <a href="https://maintownrealty.com/logistics" class="btn btn-p btn-lg" target="_blank">Send a Package</a>
+      <a href="logistics.html" class="btn btn-p btn-lg">Send a Package</a>
     </div>
   </div>
   <div class="hs-slide" style="background-image:url('images/slide-organic.png')">
     <div class="hs-content">
       <h2>Healthy Living Starts Here</h2>
       <p>Fresh fruits, premium supplements, shawarma &amp; organic drinks.</p>
-      <a href="https://maintownrealty.com/organic" class="btn btn-p btn-lg" target="_blank">Shop Now</a>
+      <a href="organic.html" class="btn btn-g btn-lg">Shop Now</a>
     </div>
   </div>
 
@@ -511,7 +512,8 @@ function toggleNavMenu() {
 <section class="cta-band" id="contact">
   <div class="wrap">
     <h2>Get in Touch</h2>
-    <p>For corporate inquiries, partnerships, or investor relations, contact our office directly. Email coming soon.</p>
+    <p>For corporate inquiries, partnerships, or investor relations, contact our office directly.</p>
+    <p style="font-size:.95rem;color:#fff;font-weight:700;margin-top:-1rem;margin-bottom:1.8rem;"><a href="mailto:smartyhubgroup@gmail.com" style="color:#fff;text-decoration:underline;text-underline-offset:3px;">smartyhubgroup@gmail.com</a></p>
     <div class="cta-band-btns">
       <a href="https://wa.me/2348066611017?text=Hi,%20I%27d%20like%20to%20get%20in%20touch%20with%20SmartyHub%20Group" class="btn btn-ghost btn-lg" target="_blank" style="border-color:rgba(255,255,255,.35)">Contact via WhatsApp</a>
     </div>
