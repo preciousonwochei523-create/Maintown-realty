@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>SmartyHub Group — Business News</title>
+<meta name="description" content="Latest developments, expansion plans, and insights from SmartyHub Group."/>
+<link rel="icon" href="favicon.ico" sizes="any"/>
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png"/>
+<link rel="icon" type="image/png" sizes="512x512" href="icon-512.png"/>
+<link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+/* HERO */
+.bn-hero {
+  min-height:56vh; display:flex; flex-direction:column; justify-content:center; align-items:center;
+  text-align:center; padding:9rem 1.5rem 4rem; position:relative; overflow:hidden;
+  background:
+    radial-gradient(ellipse 60% 50% at 75% 20%, rgba(124,58,237,.16) 0%, transparent 60%),
+    radial-gradient(ellipse 45% 40% at 10% 85%, rgba(46,125,50,.10) 0%, transparent 55%),
+    var(--bk);
+}
+.bn-hero::after {
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background:repeating-linear-gradient(0deg,transparent,transparent 59px,rgba(255,255,255,.018) 60px),
+             repeating-linear-gradient(90deg,transparent,transparent 59px,rgba(255,255,255,.018) 60px);
+}
+.bn-hero-inner { position:relative; z-index:2; max-width:640px; }
+.bn-hero h1 { font-family:'Fraunces',serif; font-weight:900; font-size:clamp(2rem,5vw,3.2rem); color:var(--wh); margin-bottom:.8rem; letter-spacing:-.02em; }
+.bn-hero p { font-size:clamp(.9rem,1.7vw,1.05rem); color:rgba(255,255,255,.6); line-height:1.7; }
+
+/* SCROLL FADE-IN */
+.reveal { opacity:0; transform:translateY(28px); transition:opacity .7s ease, transform .7s ease; }
+.reveal.in-view { opacity:1; transform:translateY(0); }
+
+/* FEATURED ARTICLE */
+.article-section { background:var(--bk2); padding:4.5rem 0; }
+.article-wrap { max-width:760px; margin:0 auto; }
+.article-tag { display:inline-block; font-size:.68rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--pl); background:rgba(124,58,237,.12); border:1px solid rgba(124,58,237,.3); padding:.35rem 1rem; border-radius:50px; margin-bottom:1.2rem; }
+.article-wrap h2 { font-family:'Fraunces',serif; font-size:clamp(1.6rem,3.4vw,2.4rem); color:var(--wh); line-height:1.2; margin-bottom:1.6rem; }
+.article-wrap p { font-size:.96rem; color:rgba(255,255,255,.68); line-height:1.85; margin-bottom:1.4rem; }
+.article-wrap h3 { font-family:'Fraunces',serif; font-size:1.15rem; color:var(--wh); margin:2.2rem 0 1rem; }
+.article-list { list-style:none; display:flex; flex-direction:column; gap:.6rem; margin-bottom:1.4rem; }
+.article-list li { font-size:.92rem; color:rgba(255,255,255,.68); display:flex; align-items:flex-start; gap:.6rem; line-height:1.6; }
+.article-list svg { flex-shrink:0; width:18px; height:18px; color:var(--pl); margin-top:.2rem; }
+.dev-box {
+  background:linear-gradient(135deg,rgba(124,58,237,.10),rgba(46,125,50,.07));
+  border:1px solid rgba(255,255,255,.08); border-left:3px solid var(--pl);
+  border-radius:10px; padding:1.6rem 1.8rem; margin:2rem 0;
+}
+.dev-box h4 { font-family:'Fraunces',serif; font-size:1rem; color:var(--pl); margin-bottom:.6rem; }
+.dev-box p { font-size:.9rem; color:rgba(255,255,255,.65); margin:0; }
+.article-meta { font-size:.76rem; color:rgba(255,255,255,.35); margin-top:2rem; padding-top:1.2rem; border-top:1px solid rgba(255,255,255,.08); }
+
+/* NEWS CARDS GRID */
+.news-section { padding:4.5rem 0; }
+.news-section .center { max-width:640px; margin:0 auto 2.6rem; }
+.news-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.4rem; }
+.news-card {
+  background:var(--card); border:1px solid var(--bd); border-radius:12px; padding:1.9rem;
+  box-shadow:var(--shadow); transition:transform .22s, box-shadow .22s, border-color .22s;
+  display:flex; flex-direction:column;
+}
+.news-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-lg); border-color:rgba(167,139,250,.3); }
+.news-card-tag { font-size:.66rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--gl); margin-bottom:.7rem; }
+.news-card h3 { font-family:'Fraunces',serif; font-size:1.05rem; font-weight:900; color:var(--wh); margin-bottom:.6rem; line-height:1.35; }
+.news-card p { font-size:.86rem; color:var(--gr); line-height:1.65; margin-bottom:1.3rem; flex-grow:1; }
+.news-card-link { font-size:.8rem; font-weight:700; color:var(--pl); display:inline-flex; align-items:center; gap:.35rem; }
+
+@media(max-width:900px) {
+  .news-grid { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="smartyhub.html" class="nav-logo"><span>Smarty<em>Hub</em></span> Group</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="about-smartyhub.html">About Us</a></li>
+    <li><a href="business-news.html" class="active">Business News</a></li>
+    <li><a href="organic.html">Supplements</a></li>
+    <li><a href="logistics.html">Logistics</a></li>
+    <li><a href="index.html">Realty</a></li>
+  </ul>
+  <a href="smartyhub.html#contact" class="nav-cta" style="background:var(--p)">Contact</a>
+  <button class="nav-toggle" id="navToggle" onclick="toggleNavMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<script>
+function toggleNavMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+  document.getElementById('navToggle').classList.toggle('open');
+}
+</script>
+
+<!-- HERO -->
+<section class="bn-hero">
+  <div class="bn-hero-inner">
+    <span class="eyebrow eyebrow-p fade-up">Press &amp; Updates</span>
+    <h1 class="fade-up delay-1">Business News &amp; Updates</h1>
+    <p class="fade-up delay-2">Latest developments, expansion plans, and insights from SmartyHub Group.</p>
+  </div>
+</section>
+
+<!-- FEATURED ARTICLE -->
+<section class="article-section">
+  <div class="wrap">
+    <div class="article-wrap reveal">
+      <span class="article-tag">Featured Story</span>
+      <h2>SmartyHub Group Expands Multi-Sector Footprint Across Lagos</h2>
+
+      <p>SmartyHub Group is a fast-growing Nigerian business ecosystem built around a simple idea: everyday life in a city like Lagos involves recurring, practical needs — a place to live, goods that need to move, and access to genuine health products. Rather than operate as a single company, SmartyHub Group has structured itself as a portfolio of independently registered businesses, each focused on solving one of those needs directly.</p>
+
+      <h3>Operating Across Three Sectors</h3>
+      <p>The group currently operates through three subsidiaries, each addressing a distinct part of urban life in Lagos:</p>
+      <ul class="article-list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg><strong style="color:#fff;">MainTown Realty</strong> — real estate and flexible housing, offering verified listings and structured monthly rent models that reduce the pressure of paying a full year's rent upfront.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="14" height="11"/><path d="M15 10h4l3 3v4h-7z"/><circle cx="6" cy="19" r="1.5"/><circle cx="17.5" cy="19" r="1.5"/></svg><strong style="color:#fff;">SmartyHub Logistics</strong> — fast, same-day delivery services built for the pace of a city where speed and reliability determine whether a business runs smoothly.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 4 13V6a1 1 0 0 1 1-1h6a7 7 0 0 1 7 7v1a7 7 0 0 1-7 7z"/><path d="M11 20v-9"/></svg><strong style="color:#fff;">SmartyHub Organic</strong> — fresh fruits, NAFDAC-approved supplements, shawarma, and organic drinks, aimed at making healthy choices easier to access day to day.</li>
+      </ul>
+
+      <p>What connects the three is a consistent approach: customer-focused solutions, a strong emphasis on urban convenience, and a digital-first, WhatsApp-enabled way of doing business that removes the friction of long queues, paperwork, and unclear pricing.</p>
+
+      <div class="dev-box">
+        <h4>Recent Developments</h4>
+        <p>As part of its ongoing growth strategy, SmartyHub Group is working to scale its real estate operations beyond Lagos, while continuing to strengthen its logistics infrastructure and expand the retail footprint of SmartyHub Organic.</p>
+      </div>
+
+      <h3>Future Outlook</h3>
+      <p>Looking ahead, SmartyHub Group's growth plans center on three areas: expansion into other major Nigerian cities, early-stage exploration of international markets — including Canada real estate listings through MainTown Realty — and continued investment in technology-driven systems to support the group's operations as it scales.</p>
+
+      <div class="article-meta">SmartyHub Group Newsroom · Lagos, Nigeria</div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS CARDS -->
+<section class="news-section">
+  <div class="wrap">
+    <div class="center reveal">
+      <span class="eyebrow eyebrow-p">More Updates</span>
+      <h2 style="font-family:'Fraunces',serif;font-size:clamp(1.4rem,2.8vw,1.9rem);color:var(--wh);">Across the Group</h2>
+    </div>
+    <div class="news-grid">
+      <div class="news-card reveal">
+        <div class="news-card-tag">Real Estate</div>
+        <h3>MainTown Realty Eyes Expansion</h3>
+        <p>Flexible housing solutions gain traction in Lagos.</p>
+        <a href="index.html" class="news-card-link">Read More →</a>
+      </div>
+      <div class="news-card reveal">
+        <div class="news-card-tag">Logistics</div>
+        <h3>SmartyHub Logistics Scales Operations</h3>
+        <p>Same-day delivery demand continues to rise.</p>
+        <a href="logistics.html" class="news-card-link">Read More →</a>
+      </div>
+      <div class="news-card reveal">
+        <div class="news-card-tag">Organic Retail</div>
+        <h3>Organic Retail on the Rise</h3>
+        <p>Healthy living trend boosts SmartyHub Organic growth.</p>
+        <a href="organic.html" class="news-card-link">Read More →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo"><span>Smarty<em>Hub</em></span> Group</div>
+  <div class="footer-copy">© 2025 SmartyHub Group · Lagos, Nigeria · CAC Registered</div>
+  <nav class="footer-nav">
+    <a href="mailto:smartyhubgroup@gmail.com">smartyhubgroup@gmail.com</a>
+  </nav>
+</footer>
+
+<script>
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in-view');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+revealEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
