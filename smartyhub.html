@@ -62,6 +62,28 @@
   .hs-prev { left:.7rem; } .hs-next { right:.7rem; }
 }
 
+/* SMART LIVING STRIP */
+.smart-strip {
+  background:#ffffff; padding:5rem 1.5rem; text-align:center;
+}
+.smart-strip h2 {
+  font-size:clamp(2.2rem,6vw,4.4rem); font-family:'Fraunces',serif; font-weight:900;
+  line-height:1.08; letter-spacing:-.03em; margin-bottom:.6em;
+}
+.smart-strip .sl-green { color:var(--g); display:block; }
+.smart-strip .sl-purple { color:var(--p); display:block; }
+.smart-strip .sl-black { color:#0b0b0f; display:block; }
+.smart-strip p {
+  font-size:clamp(.95rem,2vw,1.12rem); color:#4B5563;
+  max-width:560px; line-height:1.75; margin:0 auto 2.2rem;
+}
+
+/* SCROLL-TRIGGERED REVEAL */
+.reveal { opacity:0; transform:translateY(28px); transition:opacity .7s ease, transform .7s ease; }
+.reveal.in-view { opacity:1; transform:translateY(0); }
+.reveal.delay-1.in-view { transition-delay:.1s; }
+.reveal.delay-2.in-view { transition-delay:.22s; }
+
 .hero {
   min-height:100vh; display:flex; flex-direction:column;
   justify-content:center; align-items:center; text-align:center;
@@ -273,25 +295,30 @@ function toggleNavMenu() {
 })();
 </script>
 
-<!-- ABOUT STRIP -->
-<section class="hero" style="min-height:auto;padding:4rem 1.5rem 4rem;">
-  <div class="hero-badge">CAC Registered · Lagos, Nigeria</div>
-  <h1 class="display fade-up">
-    Smart Living.
-    <span class="line-g">Smart Moving.</span>
-    <span class="line-p">Smart Investing.</span>
-  </h1>
-  <p class="hero-sub fade-up delay-1">Three real businesses built to solve real Lagos problems — quality supplements, reliable delivery, and flexible housing. All in one group.</p>
-  <div class="hero-btns fade-up delay-2">
+<!-- SMART LIVING STRIP -->
+<section class="smart-strip">
+  <h2 class="reveal">
+    <span class="sl-green">Smart Living.</span>
+    <span class="sl-purple">Smart Moving.</span>
+    <span class="sl-black">Smart Investing.</span>
+  </h2>
+  <p class="reveal delay-1">Three real businesses built to solve real Lagos problems — quality supplements, reliable delivery, and flexible housing. All in one group.</p>
+  <div class="reveal delay-2">
     <a href="#services" class="btn btn-p btn-lg">See Our Services</a>
   </div>
-  <div class="hero-stats fade-up delay-3">
-    <div><div class="stat-n">3</div><div class="stat-l">CAC Businesses</div></div>
-    <div><div class="stat-n">Lagos</div><div class="stat-l">Based &amp; Operating</div></div>
-    <div><div class="stat-n">NAFDAC</div><div class="stat-l">Approved Products</div></div>
-  </div>
-  <p style="font-size:.78rem;color:rgba(255,255,255,.35);margin-top:2.2rem;max-width:480px;letter-spacing:.02em;">SmartyHub Group is a holding company with three independently CAC-registered subsidiaries — MainTown Realty, SmartyHub Logistics, and SmartyHub Organic.</p>
 </section>
+<script>
+const revealEls = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in-view');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+revealEls.forEach(el => revealObserver.observe(el));
+</script>
 
 <!-- QUICK ACTIONS -->
 <section class="qa-section" id="services">
